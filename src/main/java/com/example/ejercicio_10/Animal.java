@@ -14,7 +14,7 @@ public class Animal extends com.example.ejercicio_09.Animal {
     }
 
     @Override
-    protected Object clone() { //throws CloneNotSupportedException {
+    public Object clone() { //throws CloneNotSupportedException {
         try {
             return (Animal) super.clone();
         } catch (CloneNotSupportedException e) {
