@@ -9,10 +9,7 @@ d. Medio: acuático, aéreo
 e. .toString().
 */
 
-import com.example.utils.Input;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.ejercicio_09.clases.Animal;
 
 public class Main {
     public static void main(String[] args) {

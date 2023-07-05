@@ -6,7 +6,9 @@ a ambas clases a implementar el método getPropietario y setPropietario. Las
 mascotas tienen nombre mientras que los animales de granja no.
 */
 
-import com.example.ejercicio_10.Animal;
+import com.example.ejercicio_10.clases.Animal;
+import com.example.ejercicio_11.clases.AnimalGranja;
+import com.example.ejercicio_11.clases.Mascota;
 
 public class Main {
     public static void main(String[] args) {

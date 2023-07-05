@@ -1,8 +1,9 @@
-package com.example.ejercicio_11;
+package com.example.ejercicio_11.clases;
 
-import com.example.ejercicio_10.Animal;
+import com.example.ejercicio_10.clases.Animal;
+import com.example.ejercicio_11.IAnimalDomestico;
 
-public class AnimalGranja extends com.example.ejercicio_10.Animal implements IAnimalDomestico{
+public class AnimalGranja extends Animal implements IAnimalDomestico {
 
     private String propietario;
 

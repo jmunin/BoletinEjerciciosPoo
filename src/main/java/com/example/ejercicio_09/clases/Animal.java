@@ -1,4 +1,4 @@
-package com.example.ejercicio_09;
+package com.example.ejercicio_09.clases;
 
 public class Animal {
 
