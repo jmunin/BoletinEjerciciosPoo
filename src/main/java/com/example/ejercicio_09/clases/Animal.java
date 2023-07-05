@@ -3,10 +3,10 @@ package com.example.ejercicio_09.clases;
 public class Animal {
 
     public enum Reinos {
-        mamifero, ave
+        mamifero, ave, pez
     }
     public enum Tipos {
-       gato, periquito
+       gato, periquito, tucan, pezPayaso, Vaca, Oveja, perro
    }
     public enum Medios {
         acuatico, terrestre, aereo
