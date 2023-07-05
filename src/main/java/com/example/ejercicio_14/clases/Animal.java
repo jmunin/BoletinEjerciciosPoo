@@ -2,28 +2,28 @@ package com.example.ejercicio_14.clases;
 
 public abstract class Animal implements ISexual {
 
-    private Reinos reino;
-    private Tipos tipo;
+    private Reino reino;
+    private Tipo tipo;
     private String raza;
-    private Medios medio;
+    private Medio medio;
     private ISexual.Sexo sexo;
 
     public Animal() {
     }
 
-    public Animal(Reinos reino, Tipos tipo, String raza, Medios medio, ISexual.Sexo sexo) {
+    public Animal(Reino reino, Tipo tipo, Medio medio, String raza, ISexual.Sexo sexo) {
         this.reino = reino;
         this.tipo = tipo;
-        this.raza = raza;
         this.medio = medio;
+        this.raza = raza;
         this.sexo = sexo;
     }
 
     public Animal(Animal animal) {
-        this.setReino(animal.getReino());
-        this.setTipo(animal.getTipo());
-        this.setRaza(animal.getRaza());
-        this.setMedio(animal.getMedio());
+        this.reino = animal.getReino();
+        this.tipo = animal.getTipo();
+        this.medio = animal.getMedio();
+        this.raza = animal.getRaza();
         this.setSexo(animal.getSexo());
     }
 
@@ -31,37 +31,29 @@ public abstract class Animal implements ISexual {
 
     public abstract void desplazarse();
 
-    public Reinos getReino() {
+    public Reino getReino() {
         return reino;
     }
 
-    public void setReino(Reinos reino) {
-        this.reino = reino;
-    }
+    //public void setReino(Reinos reino) { this.reino = reino; }
 
-    public Tipos getTipo() {
+    public Tipo getTipo() {
         return tipo;
     }
 
-    public void setTipo(Tipos tipo) {
-        this.tipo = tipo;
-    }
+    //public void setTipo(Tipos tipo) { this.tipo = tipo; }
 
     public String getRaza() {
         return raza;
     }
 
-    public void setRaza(String raza) {
-        this.raza = raza;
-    }
+    //public void setRaza(String raza) { this.raza = raza; }
 
-    public Medios getMedio() {
+    public Medio getMedio() {
         return medio;
     }
 
-    public void setMedio(Medios medio) {
-        this.medio = medio;
-    }
+    //public void setMedio(Medios medio) { this.medio = medio; }
 
     @Override
     public Sexo getSexo() {
@@ -85,19 +77,5 @@ public abstract class Animal implements ISexual {
                 '}';
     }
 
-    public enum Reinos {
-        MAMIFERO, AVE, PEZ
-    }
 
-    public enum Tipos {
-        GATO, PERIQUITO, TUCAN, PEZ_PAYASO, VACA, OVEJA, PERRO
-    }
-
-    public enum Medios {
-        ACUATICO, TERRESTRE, AEREO
-    }
-
-    public enum Desplazamientos {
-        VOLAR, NADAR, REPTAR, CAMINAR
-    }
 }

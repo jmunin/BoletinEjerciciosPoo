@@ -17,59 +17,52 @@ public class Main {
         //test();
         List<Animal> lista = new ArrayList<>();
         cargarListaAnimales(lista);
-
-        System.out.println(lista.toString());
-        System.out.println(lista.size());
+        test(lista);
     }
 
     public static void cargarListaAnimales(List<Animal> lista) {
         Animal animalMacho;
         Animal animalHembra;
 
-        animalMacho = new Gato(Animal.Reinos.MAMIFERO, Animal.Tipos.GATO, "siamés", Animal.Medios.TERRESTRE, ISexual.Sexo.MACHO, "misifu", "pepe");
+        animalMacho = new Gato("siamés", ISexual.Sexo.MACHO, "misifu", "pepe");
         lista.add(animalMacho);
-        animalHembra = new Gato(Animal.Reinos.MAMIFERO, Animal.Tipos.GATO, "siamés", Animal.Medios.TERRESTRE, ISexual.Sexo.HEMBRA, "lola", "pepe");
+        animalHembra = new Gato("persa", ISexual.Sexo.HEMBRA, "lola", "pepe");
         lista.add(animalHembra);
 
-        animalMacho = new Perro(Animal.Reinos.MAMIFERO, Animal.Tipos.PERRO, "pastor", Animal.Medios.TERRESTRE, ISexual.Sexo.MACHO, "troski", "pepe");
+        animalMacho = new Perro("pastor", ISexual.Sexo.MACHO, "troski", "pepe");
         lista.add(animalMacho);
-        animalHembra = new Perro(Animal.Reinos.MAMIFERO, Animal.Tipos.PERRO, "pastor", Animal.Medios.TERRESTRE, ISexual.Sexo.HEMBRA, "chula", "pepe");
+        animalHembra = new Perro("dogo", ISexual.Sexo.HEMBRA, "chula", "pepe");
         lista.add(animalHembra);
 
-        animalMacho = new Tucan(Animal.Reinos.AVE, Animal.Tipos.TUCAN, "andino", Animal.Medios.AEREO, ISexual.Sexo.MACHO);
+        animalMacho = new Tucan("andino", ISexual.Sexo.MACHO);
         lista.add(animalMacho);
-        animalHembra = new Tucan(Animal.Reinos.AVE, Animal.Tipos.TUCAN, "andino", Animal.Medios.AEREO, ISexual.Sexo.HEMBRA);
+        animalHembra = new Tucan("texel", ISexual.Sexo.HEMBRA);
         lista.add(animalHembra);
 
-        animalMacho = new Oveja(Animal.Reinos.MAMIFERO, Animal.Tipos.OVEJA, "dorset", Animal.Medios.TERRESTRE, ISexual.Sexo.MACHO,"pepe");
+        animalMacho = new Oveja("dorset", ISexual.Sexo.MACHO, "pepe");
         lista.add(animalMacho);
-        animalHembra = new Oveja(Animal.Reinos.MAMIFERO, Animal.Tipos.OVEJA, "dorset", Animal.Medios.TERRESTRE, ISexual.Sexo.HEMBRA,"pepe");
+        animalHembra = new Oveja("sarda", ISexual.Sexo.HEMBRA, "pepe");
         lista.add(animalHembra);
 
-        animalMacho = new Vaca(Animal.Reinos.MAMIFERO, Animal.Tipos.VACA, "rubia gallega", Animal.Medios.TERRESTRE, ISexual.Sexo.MACHO, "pepe");
+        animalMacho = new Vaca("rubia gallega", ISexual.Sexo.MACHO, "pepe");
         lista.add(animalMacho);
-        animalHembra = new Vaca(Animal.Reinos.MAMIFERO, Animal.Tipos.VACA, "rubia gallega", Animal.Medios.TERRESTRE, ISexual.Sexo.HEMBRA, "pepe");
+        animalHembra = new Vaca("charolesa", ISexual.Sexo.HEMBRA, "pepe");
         lista.add(animalHembra);
 
-        animalMacho = new PezPayaso(Animal.Reinos.PEZ, Animal.Tipos.PEZ_PAYASO, "común", Animal.Medios.ACUATICO,ISexual.Sexo.MACHO);
+        animalMacho = new PezPayaso("percula", ISexual.Sexo.MACHO);
         lista.add(animalMacho);
-        animalHembra = new PezPayaso(Animal.Reinos.PEZ, Animal.Tipos.PEZ_PAYASO, "común", Animal.Medios.ACUATICO,ISexual.Sexo.HEMBRA);
+        animalHembra = new PezPayaso("ocellaris", ISexual.Sexo.HEMBRA);
         lista.add(animalHembra);
     }
 
-    private static void test() {
-        Gato gato = new Gato(Animal.Reinos.MAMIFERO, Animal.Tipos.GATO, "siamés", Animal.Medios.TERRESTRE, ISexual.Sexo.MACHO, "misifú", "pepe");
-        System.out.println(gato.toString());
-        gato.reproducirSonido();
-        gato.desplazarse();
-        Perro perro = new Perro(Animal.Reinos.MAMIFERO, Animal.Tipos.PERRO, "pastor", Animal.Medios.TERRESTRE, ISexual.Sexo.MACHO, "troski", "pepe");
-        System.out.println(perro.toString());
-        perro.reproducirSonido();
-        perro.desplazarse();
-        Tucan tucan = new Tucan(Animal.Reinos.AVE, Animal.Tipos.TUCAN, "andino", Animal.Medios.AEREO, ISexual.Sexo.MACHO);
-        System.out.println(tucan.toString());
-        tucan.reproducirSonido();
-        tucan.desplazarse();
+    private static void test(List<Animal> lista) {
+        System.out.printf("Número de elementos de la lista: %d\n", lista.size());
+        for (Animal a :
+                lista) {
+            System.out.println(a.toString());
+            a.reproducirSonido();
+            a.desplazarse();
+        }
     }
 
 }

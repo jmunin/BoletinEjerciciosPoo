@@ -1,8 +1,9 @@
 package com.example.ejercicio_14.clases;
 
 public class Tucan extends AnimalSalvaje {
-    public Tucan(Reinos reino, Tipos tipo, String raza, Medios medio, ISexual.Sexo sexo) {
-        super(reino, tipo, raza, medio, sexo);
+    public Tucan(String raza, ISexual.Sexo sexo) {
+        //
+        super(Reino.AVE, Tipo.TUCAN, Medio.AEREO, raza, sexo);
     }
 
     @Override

@@ -1,8 +1,9 @@
 package com.example.ejercicio_14.clases;
 
 public class Perro extends Mascota {
-    public Perro(Reinos reino, Tipos tipo, String raza, Medios medio, ISexual.Sexo sexo, String nombre, String propietario) {
-        super(reino, tipo, raza, medio, sexo, nombre, propietario);
+    public Perro(String raza, ISexual.Sexo sexo, String nombre, String propietario) {
+        //
+        super(Reino.MAMIFERO, Tipo.PERRO, Medio.TERRESTRE, raza, sexo, nombre, propietario);
     }
 
     @Override

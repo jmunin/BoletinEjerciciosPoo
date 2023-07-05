@@ -4,8 +4,8 @@ public abstract class Mascota extends Animal implements IAnimalDomestico {
     private String nombre;
     private String propietario;
 
-    public Mascota(Reinos reino, Tipos tipo, String raza, Medios medio, ISexual.Sexo sexo, String nombre, String propietario) {
-        super(reino, tipo, raza, medio, sexo);
+    public Mascota(Reino reino, Tipo tipo, Medio medio, String raza, ISexual.Sexo sexo, String nombre, String propietario) {
+        super(reino, tipo, medio, raza, sexo);
         this.nombre = nombre;
         this.propietario = propietario;
     }
@@ -13,7 +13,7 @@ public abstract class Mascota extends Animal implements IAnimalDomestico {
     public Mascota(Mascota mascota) {
         super(mascota);
         this.nombre = mascota.getNombre();
-        this.propietario=mascota.getPropietario();
+        this.propietario = mascota.getPropietario();
     }
 
     @Override

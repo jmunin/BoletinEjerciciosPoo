@@ -1,12 +1,14 @@
 package com.example.ejercicio_14.clases;
 
 public class Gato extends Mascota {
-    public Gato(Reinos reino, Tipos tipo, String raza, Medios medio, ISexual.Sexo sexo, String nombre, String propietario) {
-        super(reino, tipo, raza, medio, sexo, nombre, propietario);
+    public Gato(String raza, ISexual.Sexo sexo, String nombre, String propietario) {
+        super(Reino.MAMIFERO, Tipo.GATO, Medio.TERRESTRE, raza, sexo, nombre, propietario);
     }
+
     public Gato(Gato gato) {
         super(gato);
     }
+
     @Override
     public void reproducirSonido() {
         System.out.println("miau");

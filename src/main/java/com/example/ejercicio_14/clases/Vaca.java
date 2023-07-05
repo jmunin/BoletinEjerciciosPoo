@@ -1,8 +1,8 @@
 package com.example.ejercicio_14.clases;
 
 public class Vaca extends AnimalGranja {
-    public Vaca(Reinos reino, Tipos tipo, String raza, Medios medio, ISexual.Sexo sexo, String propietario) {
-        super(reino, tipo, raza, medio, sexo, propietario);
+    public Vaca(String raza, ISexual.Sexo sexo, String propietario) {
+        super(Reino.MAMIFERO, Tipo.VACA, Medio.TERRESTRE, raza, sexo, propietario);
     }
 
     @Override
