@@ -6,16 +6,25 @@ public abstract class Animal implements ISexual {
     private Tipos tipo;
     private String raza;
     private Medios medio;
-    private Sexo sexo;
+    private ISexual.Sexo sexo;
 
     public Animal() {
     }
 
-    public Animal(Reinos reino, Tipos tipo, String raza, Medios medio) {
+    public Animal(Reinos reino, Tipos tipo, String raza, Medios medio, ISexual.Sexo sexo) {
         this.reino = reino;
         this.tipo = tipo;
         this.raza = raza;
         this.medio = medio;
+        this.sexo = sexo;
+    }
+
+    public Animal(Animal animal) {
+        this.setReino(animal.getReino());
+        this.setTipo(animal.getTipo());
+        this.setRaza(animal.getRaza());
+        this.setMedio(animal.getMedio());
+        this.setSexo(animal.getSexo());
     }
 
     public abstract void reproducirSonido();
@@ -56,7 +65,7 @@ public abstract class Animal implements ISexual {
 
     @Override
     public Sexo getSexo() {
-        return this.sexo;
+        return sexo;
     }
 
     @Override
@@ -71,23 +80,24 @@ public abstract class Animal implements ISexual {
                 ", tipo=" + tipo +
                 ", raza='" + raza + '\'' +
                 ", medio=" + medio +
-                ", clase=" + this.getClass().getName() +
+                ", clase=" + this.getClass().getSimpleName() +
+                ", sexo=" + sexo +
                 '}';
     }
 
     public enum Reinos {
-        mamifero, ave, pez
+        MAMIFERO, AVE, PEZ
     }
 
     public enum Tipos {
-        gato, periquito, tucan, pezPayaso, vaca, oveja, perro
+        GATO, PERIQUITO, TUCAN, PEZ_PAYASO, VACA, OVEJA, PERRO
     }
 
     public enum Medios {
-        acuatico, terrestre, aereo
+        ACUATICO, TERRESTRE, AEREO
     }
 
     public enum Desplazamientos {
-        volar, nadar, reptar, caminar
+        VOLAR, NADAR, REPTAR, CAMINAR
     }
 }

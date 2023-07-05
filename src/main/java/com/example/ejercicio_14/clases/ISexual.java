@@ -6,6 +6,6 @@ public interface ISexual {
     public void setSexo(Sexo sexo);
 
     public enum Sexo {
-        macho, hembra
+        MACHO, HEMBRA
     }
 }

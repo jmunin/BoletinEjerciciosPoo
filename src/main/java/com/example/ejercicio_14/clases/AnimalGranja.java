@@ -4,9 +4,9 @@ public abstract class AnimalGranja extends Animal implements IAnimalDomestico {
 
     private String propietario;
 
-    public AnimalGranja(Reinos reino, Tipos tipo, String raza, Medios medio, String propietario) {
-        super(reino, tipo, raza, medio);
-        this.setPropietario(propietario);
+    public AnimalGranja(Reinos reino, Tipos tipo, String raza, Medios medio, ISexual.Sexo sexo, String propietario) {
+        super(reino, tipo, raza, medio, sexo);
+        this.propietario = propietario;
     }
 
     @Override
