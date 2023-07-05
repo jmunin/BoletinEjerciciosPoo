@@ -2,8 +2,10 @@ package com.example.ejercicio_04;
 
 import com.example.utils.Input;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+/*
+4. Calcular el factorial de un numero dado (No probar con número muy altos).
+*/
+
 public class Main {
     public static void main(String[] args) {
         String numero = Input.string("Introduce un número entero: ");

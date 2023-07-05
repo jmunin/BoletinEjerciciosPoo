@@ -2,8 +2,9 @@ package com.example.ejercicio_03;
 
 import com.example.utils.Input;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+/*
+3. Dado un numero entero, determinar todos los divisores de dicho número.
+*/
 public class Main {
     public static void main(String[] args) {
         String numero = Input.string("Introduce un número entero: ");

@@ -1,9 +1,9 @@
 package com.example.ejercicio_01;
 
 import com.example.utils.Input;
-
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+/*
+1. Pedir un numero entero al usuario, imprimir si el número es par o impar.
+ */
 public class Main {
     public static void main(String[] args) {
         String numero = Input.string("Introduce un número entero: ");
