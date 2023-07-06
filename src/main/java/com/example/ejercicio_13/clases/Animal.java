@@ -1,7 +1,7 @@
 package com.example.ejercicio_13.clases;
 
 public abstract class Animal implements ISexual {
-
+    private static int generador = 1;
     public static final int MAX_CRIAS = 3;
     private final Animal padre;
     private final Animal madre;
@@ -10,6 +10,7 @@ public abstract class Animal implements ISexual {
     private final String raza;
     private final Medio medio;
     private Sexo sexo;
+    private int id;
 
     public Animal(Reino reino, Tipo tipo, Medio medio, String raza, Sexo sexo) {
         this.reino = reino;
@@ -19,6 +20,7 @@ public abstract class Animal implements ISexual {
         this.sexo = sexo;
         this.padre = null;
         this.madre = null;
+        id = generador++;
     }
 
     public Animal(Reino reino, Tipo tipo, Medio medio, String raza, Sexo sexo, Animal padre, Animal madre) {
@@ -29,6 +31,7 @@ public abstract class Animal implements ISexual {
         this.sexo = sexo;
         this.padre = padre;
         this.madre = madre;
+        id = generador++;
     }
 
     public Animal(Animal animal) {
@@ -39,6 +42,7 @@ public abstract class Animal implements ISexual {
         this.setSexo(animal.getSexo());
         this.padre = animal.getPadre();
         this.madre = animal.getMadre();
+        id = generador++;
     }
 
     public abstract void reproducirSonido();
