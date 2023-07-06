@@ -31,7 +31,7 @@ public class Main {
         }
         //test(lista);
     }
-    public static void cargarListaAnimales(List<Animal> lista) {
+    private static void cargarListaAnimales(List<Animal> lista) {
         Animal animalMacho, animalHembra;
 
         animalMacho = new Gato("siamés", Sexo.MACHO, "misifu", "pepe");
