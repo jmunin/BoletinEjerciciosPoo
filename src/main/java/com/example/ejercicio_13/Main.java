@@ -10,18 +10,22 @@ import com.example.ejercicio_13.clases.*;
 
 public class Main {
     public static void main(String[] args) {
-        Gato gato = new Gato(Animal.Reinos.mamifero, Animal.Tipos.gato, "siamés", Animal.Medios.terrestre, "misifú","pepe");
+        Gato gato = new Gato("siamés", "misifú", "pepe");
         System.out.println(gato.toString());
         gato.reproducirSonido();
         gato.desplazarse();
-        Perro perro = new Perro(Animal.Reinos.mamifero, Animal.Tipos.perro, "pastor", Animal.Medios.terrestre, "troski","pepe");
+        Perro perro = new Perro("pastor", "troski", "pepe");
         System.out.println(perro.toString());
         perro.reproducirSonido();
         perro.desplazarse();
-        Tucan tucan = new Tucan(Animal.Reinos.ave, Animal.Tipos.tucan, "andino", Animal.Medios.aereo);
+        Tucan tucan = new Tucan("andino");
         System.out.println(tucan.toString());
         tucan.reproducirSonido();
         tucan.desplazarse();
+        Vaca vaca = new Vaca("rubia gallega", "pepe");
+        System.out.println(vaca.toString());
+        vaca.reproducirSonido();
+        vaca.desplazarse();
     }
 
 }

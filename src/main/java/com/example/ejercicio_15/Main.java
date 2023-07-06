@@ -1,9 +1,6 @@
 package com.example.ejercicio_15;
 
-import com.example.ejercicio_14.clases.Animal;
-import com.example.ejercicio_14.clases.AnimalGranja;
-import com.example.ejercicio_14.clases.AnimalSalvaje;
-import com.example.ejercicio_14.clases.Mascota;
+import com.example.ejercicio_13.clases.*;
 
 import java.util.ArrayList;
 import java.util.List;

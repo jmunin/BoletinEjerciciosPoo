@@ -7,7 +7,7 @@ implementar a interfaz ISexual, que define los métodos que dotan a un animal de
 sexo.
 */
 
-import com.example.ejercicio_14.clases.*;
+import com.example.ejercicio_13.clases.*;
 
 import java.util.ArrayList;
 import java.util.List;

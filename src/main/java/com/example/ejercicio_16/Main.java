@@ -1,6 +1,6 @@
 package com.example.ejercicio_16;
 
-import com.example.ejercicio_14.clases.*;
+import com.example.ejercicio_13.clases.*;
 
 import java.util.ArrayList;
 import java.util.List;
