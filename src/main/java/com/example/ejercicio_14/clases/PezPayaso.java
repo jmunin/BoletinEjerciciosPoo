@@ -1,8 +1,12 @@
 package com.example.ejercicio_14.clases;
 
 public class PezPayaso extends AnimalSalvaje {
-    public PezPayaso(String raza, ISexual.Sexo sexo) {
+    public PezPayaso(String raza, Sexo sexo) {
         super(Reino.PEZ, Tipo.PEZ_PAYASO, Medio.ACUATICO, raza, sexo);
+    }
+
+    public PezPayaso(String raza, Sexo sexo, AnimalSalvaje padre, AnimalSalvaje madre) {
+        super(Reino.PEZ, Tipo.PEZ_PAYASO, Medio.ACUATICO, raza, sexo, padre, madre);
     }
 
     @Override

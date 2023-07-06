@@ -1,11 +1,8 @@
 package com.example.ejercicio_14.clases;
 
 public interface ISexual {
-    Sexo getSexo();
+    public Sexo getSexo();
 
-    void setSexo(Sexo sexo);
+    public void setSexo(Sexo sexo);
 
-    enum Sexo {
-        MACHO, HEMBRA
-    }
 }

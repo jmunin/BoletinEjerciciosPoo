@@ -24,34 +24,34 @@ public class Main {
         Animal animalMacho;
         Animal animalHembra;
 
-        animalMacho = new Gato("siamés", ISexual.Sexo.MACHO, "misifu", "pepe");
+        animalMacho = new Gato("siamés", Sexo.MACHO, "misifu", "pepe");
         lista.add(animalMacho);
-        animalHembra = new Gato("persa", ISexual.Sexo.HEMBRA, "lola", "pepe");
+        animalHembra = new Gato("persa", Sexo.HEMBRA, "lola", "pepe");
         lista.add(animalHembra);
 
-        animalMacho = new Perro("pastor", ISexual.Sexo.MACHO, "troski", "pepe");
+        animalMacho = new Perro("pastor", Sexo.MACHO, "troski", "pepe");
         lista.add(animalMacho);
-        animalHembra = new Perro("dogo", ISexual.Sexo.HEMBRA, "chula", "pepe");
+        animalHembra = new Perro("dogo", Sexo.HEMBRA, "chula", "pepe");
         lista.add(animalHembra);
 
-        animalMacho = new Tucan("andino", ISexual.Sexo.MACHO);
+        animalMacho = new Tucan("andino", Sexo.MACHO);
         lista.add(animalMacho);
-        animalHembra = new Tucan("texel", ISexual.Sexo.HEMBRA);
+        animalHembra = new Tucan("texel", Sexo.HEMBRA);
         lista.add(animalHembra);
 
-        animalMacho = new Oveja("dorset", ISexual.Sexo.MACHO, "pepe");
+        animalMacho = new Oveja("dorset", Sexo.MACHO, "pepe");
         lista.add(animalMacho);
-        animalHembra = new Oveja("sarda", ISexual.Sexo.HEMBRA, "pepe");
+        animalHembra = new Oveja("sarda", Sexo.HEMBRA, "pepe");
         lista.add(animalHembra);
 
-        animalMacho = new Vaca("rubia gallega", ISexual.Sexo.MACHO, "pepe");
+        animalMacho = new Vaca("rubia gallega", Sexo.MACHO, "pepe");
         lista.add(animalMacho);
-        animalHembra = new Vaca("charolesa", ISexual.Sexo.HEMBRA, "pepe");
+        animalHembra = new Vaca("charolesa", Sexo.HEMBRA, "pepe");
         lista.add(animalHembra);
 
-        animalMacho = new PezPayaso("percula", ISexual.Sexo.MACHO);
+        animalMacho = new PezPayaso("percula", Sexo.MACHO);
         lista.add(animalMacho);
-        animalHembra = new PezPayaso("ocellaris", ISexual.Sexo.HEMBRA);
+        animalHembra = new PezPayaso("ocellaris", Sexo.HEMBRA);
         lista.add(animalHembra);
     }
 
