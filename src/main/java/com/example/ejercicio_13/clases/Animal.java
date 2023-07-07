@@ -1,5 +1,8 @@
 package com.example.ejercicio_13.clases;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public abstract class Animal implements ISexual {
     private static int generador = 1;
     public static final int MAX_CRIAS = 3;
@@ -13,6 +16,7 @@ public abstract class Animal implements ISexual {
     private int id;
 
     public Animal(Reino reino, Tipo tipo, Medio medio, String raza, Sexo sexo) {
+        this.id = generador++;
         this.reino = reino;
         this.tipo = tipo;
         this.medio = medio;
@@ -20,10 +24,10 @@ public abstract class Animal implements ISexual {
         this.sexo = sexo;
         this.padre = null;
         this.madre = null;
-        id = generador++;
     }
 
     public Animal(Reino reino, Tipo tipo, Medio medio, String raza, Sexo sexo, Animal padre, Animal madre) {
+        this.id = generador++;
         this.reino = reino;
         this.tipo = tipo;
         this.medio = medio;
@@ -31,18 +35,17 @@ public abstract class Animal implements ISexual {
         this.sexo = sexo;
         this.padre = padre;
         this.madre = madre;
-        id = generador++;
     }
 
     public Animal(Animal animal) {
+        this.id = generador++;
         this.reino = animal.getReino();
         this.tipo = animal.getTipo();
         this.medio = animal.getMedio();
         this.raza = animal.getRaza();
-        this.setSexo(animal.getSexo());
+        this.sexo = animal.getSexo();
         this.padre = animal.getPadre();
         this.madre = animal.getMadre();
-        id = generador++;
     }
 
     public abstract void reproducirSonido();
@@ -144,6 +147,13 @@ public abstract class Animal implements ISexual {
             return true;
         }
         return padre || madre;
+    }
+
+    public String toCsvRow() {
+        return Stream.of(String.valueOf(id), String.valueOf(reino), String.valueOf(tipo), String.valueOf(medio), raza, String.valueOf(sexo), String.valueOf(padre!=null?padre.id:0), String.valueOf(madre!=null?madre.id:0))
+                .map(value -> value.replaceAll("\"", "\"\""))
+                .map(value -> Stream.of("\"", ",").anyMatch(value::contains) ? "\"" + value + "\"" : value)
+                .collect(Collectors.joining(","));
     }
 
 }
