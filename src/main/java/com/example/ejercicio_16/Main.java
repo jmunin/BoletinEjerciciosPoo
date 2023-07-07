@@ -4,7 +4,6 @@ import com.example.ejercicio_13.clases.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /*
 16. Hacer una nueva lista de animales. Si en esta lista de animales existen 2 de la misma
@@ -17,8 +16,12 @@ public class Main {
     private static final int MAX_GENERACIONES = 3;
 
     public static void main(String[] args) {
-        List<Animal> lista = new ArrayList<>();
-        cargarListaAnimales(lista);
+        reproducciones();
+    }
+
+    public static List<Animal> reproducciones() {
+        List<Animal> lista ;
+        lista = generarListaPrimigenia();
         System.out.printf("Número de elementos iniciales de la lista es %d\n", lista.size());
         System.out.printf("Número máximo de crías por pareja: %d\n", Animal.MAX_CRIAS);
         System.out.printf("Número máximo de generaciones calculadas: %d\n", MAX_GENERACIONES);
@@ -30,10 +33,12 @@ public class Main {
             //test(lista);
         }
         //test(lista);
+        return lista;
     }
-    private static void cargarListaAnimales(List<Animal> lista) {
-        Animal animalMacho, animalHembra;
 
+    public static List<Animal> generarListaPrimigenia() {
+        Animal animalMacho, animalHembra;
+        List<Animal> lista = new ArrayList<>();
         animalMacho = new Gato("siamés", Sexo.MACHO, "misifu", "pepe");
         lista.add(animalMacho);
         animalHembra = new Gato("persa", Sexo.HEMBRA, "lola", "pepe");
@@ -67,6 +72,8 @@ public class Main {
         lista.add(animalMacho);
         animalHembra = new PezPayaso("ocellaris", Sexo.HEMBRA);
         lista.add(animalHembra);
+
+        return lista;
     }
 
     private static void test(List<Animal> lista) {
@@ -79,7 +86,7 @@ public class Main {
         }
     }
 
-    private static List<Animal> reproduccion(List<Animal> listaProgenitores) {
+    public static List<Animal> reproduccion(List<Animal> listaProgenitores) {
         List<Animal> listaCompleta = new ArrayList<>(listaProgenitores);
         //List<Animal> listaMachos = listaProgenitores.stream().filter(x -> x.getSexo()== ISexual.Sexo.MACHO).collect(Collectors.toList());
         //List<Animal> listaHembras = listaProgenitores.stream().filter(x -> x.getSexo()== ISexual.Sexo.HEMBRA).collect(Collectors.toList());
