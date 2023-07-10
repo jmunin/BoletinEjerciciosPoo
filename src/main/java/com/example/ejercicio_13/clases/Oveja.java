@@ -9,6 +9,10 @@ public class Oveja extends AnimalGranja {
         super(Reino.MAMIFERO, Tipo.OVEJA, Medio.TERRESTRE, raza, sexo, propietario, padre, madre);
     }
 
+    public Oveja(int id, String raza, Sexo sexo, String propietario, AnimalGranja padre, AnimalGranja madre) {
+        super(id, Reino.MAMIFERO, Tipo.OVEJA, Medio.TERRESTRE, raza, sexo, propietario, padre, madre);
+    }
+
     @Override
     public void reproducirSonido() {
         System.out.println("beeeeee");

@@ -13,6 +13,10 @@ public class Tucan extends AnimalSalvaje {
         super(Reino.AVE, Tipo.TUCAN, Medio.AEREO, raza, Sexo.MACHO);
     }
 
+    public Tucan(int id, String raza, Sexo sexo, AnimalSalvaje padre, AnimalSalvaje madre) {
+        super(id, Reino.AVE, Tipo.TUCAN, Medio.AEREO, raza, sexo, padre, madre);
+    }
+
     @Override
     public void reproducirSonido() {
         System.out.println("canto");

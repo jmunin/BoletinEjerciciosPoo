@@ -9,13 +9,19 @@ public class Gato extends Mascota {
         super(Reino.MAMIFERO, Tipo.GATO, Medio.TERRESTRE, raza, sexo, nombre, propietario, padre, madre);
     }
 
-    public Gato(Gato gato) {
-        super(gato);
+    public Gato(int id, String raza, Sexo sexo, String nombre, String propietario, Mascota padre, Mascota madre) {
+        super(id, Reino.MAMIFERO, Tipo.GATO, Medio.TERRESTRE, raza, sexo, nombre, propietario, padre, madre);
     }
 
     public Gato(String raza, String nombre, String propietario) {
         super(Reino.MAMIFERO, Tipo.GATO, Medio.TERRESTRE, raza, Sexo.MACHO, nombre, propietario);
     }
+
+    public Gato(Gato gato) {
+        super(gato);
+    }
+
+
 
     @Override
     public void reproducirSonido() {

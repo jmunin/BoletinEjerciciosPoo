@@ -9,6 +9,10 @@ public class Perro extends Mascota {
         super(Reino.MAMIFERO, Tipo.PERRO, Medio.TERRESTRE, raza, sexo, nombre, propietario, padre, madre);
     }
 
+    public Perro(int id, String raza, Sexo sexo, String nombre, String propietario, Mascota padre, Mascota madre) {
+        super(id, Reino.MAMIFERO, Tipo.PERRO, Medio.TERRESTRE, raza, sexo, nombre, propietario, padre, madre);
+    }
+
     public Perro(String raza, String nombre, String propietario) {
         super(Reino.MAMIFERO, Tipo.PERRO, Medio.TERRESTRE, raza, Sexo.MACHO, nombre, propietario);
     }

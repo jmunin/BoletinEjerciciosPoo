@@ -2,6 +2,11 @@ package com.example.ejercicio_13.clases;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static com.example.ejercicio_19.clases.CsvFile.*;
 
 public abstract class Mascota extends Animal implements IAnimalDomestico {
     private String nombre;
@@ -19,11 +24,18 @@ public abstract class Mascota extends Animal implements IAnimalDomestico {
         this.propietario = propietario;
     }
 
+    public Mascota(int id, Reino reino, Tipo tipo, Medio medio, String raza, Sexo sexo, String nombre, String propietario, Mascota padre, Mascota madre) {
+        super(id, reino, tipo, medio, raza, sexo, padre, madre);
+        this.nombre = nombre;
+        this.propietario = propietario;
+    }
+
     public Mascota(Mascota mascota) {
         super(mascota);
         this.nombre = mascota.getNombre();
         this.propietario = mascota.getPropietario();
     }
+
 
     @Override
     public String getPropietario() {
@@ -87,5 +99,26 @@ public abstract class Mascota extends Animal implements IAnimalDomestico {
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
         }
+    }
+    @Override
+    public String toStringCsv() {
+        List<String> a = Stream.of(id,
+                        reino,
+                        tipo,
+                        medio,
+                        raza,
+                        sexo,
+                        (padre != null) ? padre.id : VALUE_IF_NULL,
+                        (madre != null) ? madre.id : VALUE_IF_NULL,
+                        propietario,
+                        nombre)
+                .map(value -> String.valueOf(value))
+                .map(value -> value.replaceAll("\"", "\"\""))
+                .map(value -> Stream.of("\"", ",").anyMatch(value::contains) ? "\"" + value + "\"" : value)
+                .collect(Collectors.toList());
+        while(a.size() < NUM_MAX_COLUMNS_CSV) {
+            a.add("");
+        }
+        return String.join(COMMA_DELIMITER, a);
     }
 }

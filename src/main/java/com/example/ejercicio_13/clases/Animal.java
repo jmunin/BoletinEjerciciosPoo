@@ -1,19 +1,18 @@
 package com.example.ejercicio_13.clases;
 
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.List;
 
 public abstract class Animal implements ISexual {
     private static int generador = 1;
     public static final int MAX_CRIAS = 3;
-    private final Animal padre;
-    private final Animal madre;
-    private final Reino reino;
-    private final Tipo tipo;
-    private final String raza;
-    private final Medio medio;
-    private Sexo sexo;
-    private int id;
+    protected final Animal padre;
+    protected final Animal madre;
+    protected final Reino reino;
+    protected final Tipo tipo;
+    protected String raza ="";
+    protected final Medio medio;
+    protected Sexo sexo;
+    protected int id;
 
     public Animal(Reino reino, Tipo tipo, Medio medio, String raza, Sexo sexo) {
         this.id = generador++;
@@ -37,6 +36,30 @@ public abstract class Animal implements ISexual {
         this.madre = madre;
     }
 
+    public Animal(int id, Reino reino, Tipo tipo, Medio medio, String raza, Sexo sexo, Animal padre, Animal madre) {
+        generador++;
+        this.id= id;
+        this.reino = reino;
+        this.tipo = tipo;
+        this.medio = medio;
+        this.raza = raza;
+        this.sexo = sexo;
+        this.padre = padre;
+        this.madre = madre;
+    }
+
+
+    public Animal(int id, Reino reino, Tipo tipo, Medio medio, String raza, Sexo sexo) {
+        generador++;
+        this.id= id;
+        this.reino = reino;
+        this.tipo = tipo;
+        this.medio = medio;
+        this.raza = raza;
+        this.sexo = sexo;
+        this.padre = null;
+        this.madre = null;
+    }
     public Animal(Animal animal) {
         this.id = generador++;
         this.reino = animal.getReino();
@@ -47,6 +70,8 @@ public abstract class Animal implements ISexual {
         this.padre = animal.getPadre();
         this.madre = animal.getMadre();
     }
+
+
 
     public abstract void reproducirSonido();
 
@@ -78,10 +103,11 @@ public abstract class Animal implements ISexual {
 
     //public void setMedio(Medios medio) { this.medio = medio; }
 
-    @Override
     public Sexo getSexo() {
         return sexo;
     }
+
+    public int getId(){return id;}
 
     @Override
     public void setSexo(Sexo sexo) {
@@ -149,11 +175,14 @@ public abstract class Animal implements ISexual {
         return padre || madre;
     }
 
-    public String toCsvRow() {
-        return Stream.of(String.valueOf(id), String.valueOf(reino), String.valueOf(tipo), String.valueOf(medio), raza, String.valueOf(sexo), String.valueOf(padre!=null?padre.id:0), String.valueOf(madre!=null?madre.id:0))
-                .map(value -> value.replaceAll("\"", "\"\""))
-                .map(value -> Stream.of("\"", ",").anyMatch(value::contains) ? "\"" + value + "\"" : value)
-                .collect(Collectors.joining(","));
+    public abstract String toStringCsv();
+
+    public static Animal findAnimalById(List<Animal> lista, int idAnimal) {
+        for (Animal a: lista) {
+            if (a.getId() == idAnimal)
+                return a;
+        }
+        return null;
     }
 
 }

@@ -2,6 +2,11 @@ package com.example.ejercicio_13.clases;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static com.example.ejercicio_19.clases.CsvFile.*;
 
 public abstract class AnimalGranja extends Animal implements IAnimalDomestico {
 
@@ -14,6 +19,11 @@ public abstract class AnimalGranja extends Animal implements IAnimalDomestico {
 
     public AnimalGranja(Reino reino, Tipo tipo, Medio medio, String raza, Sexo sexo, String propietario, AnimalGranja padre, AnimalGranja madre) {
         super(reino, tipo, medio, raza, sexo, padre, madre);
+        this.propietario = propietario;
+    }
+
+    public AnimalGranja(int id, Reino reino, Tipo tipo, Medio medio, String raza, Sexo sexo, String propietario, AnimalGranja padre, AnimalGranja madre) {
+        super(id, reino, tipo, medio, raza, sexo, padre, madre);
         this.propietario = propietario;
     }
 
@@ -37,10 +47,29 @@ public abstract class AnimalGranja extends Animal implements IAnimalDomestico {
         Sexo sexo = (Math.random() > 0.5) ? Sexo.MACHO : Sexo.HEMBRA;
         AnimalGranja madre = (AnimalGranja) a;
         String propietario = madre.getPropietario();
-        return getAnimalGranja(this.getRaza(), sexo, propietario, this, madre);
+        return getAnimalGranja(this.getRaza(), sexo, this, madre, propietario);
     }
-
-    private Animal getAnimalGranja(String raza, Sexo sexo, String propietario, AnimalGranja padre, AnimalGranja madre) {
+    @Override
+    public String toStringCsv() {
+        List<String> a = Stream.of(id,
+                        reino,
+                        tipo,
+                        medio,
+                        raza,
+                        sexo,
+                        (padre != null) ? padre.id : VALUE_IF_NULL,
+                        (madre != null) ? madre.id : VALUE_IF_NULL,
+                        propietario)
+                .map(value -> String.valueOf(value))
+                .map(value -> value.replaceAll("\"", "\"\""))
+                .map(value -> Stream.of("\"", ",").anyMatch(value::contains) ? "\"" + value + "\"" : value)
+                .collect(Collectors.toList());
+        while(a.size() < NUM_MAX_COLUMNS_CSV) {
+            a.add("");
+        }
+        return String.join(COMMA_DELIMITER, a);
+    }
+    private Animal getAnimalGranja(String raza, Sexo sexo, AnimalGranja padre, AnimalGranja madre, String propietario) {
         Constructor<? extends AnimalGranja> constructor = null;
         try {
             constructor = this.getClass().getConstructor(

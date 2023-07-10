@@ -64,6 +64,7 @@ public class Main {
         System.out.println("(x) Salir. ");
         System.out.println("Escoger opción: ");
     }
+
     public static int getSum(List<Integer> nums) {
         int sum = 0;
         for (int i: nums) {

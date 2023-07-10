@@ -9,6 +9,10 @@ public class PezPayaso extends AnimalSalvaje {
         super(Reino.PEZ, Tipo.PEZ_PAYASO, Medio.ACUATICO, raza, sexo, padre, madre);
     }
 
+    public PezPayaso(int id, String raza, Sexo sexo, AnimalSalvaje padre, AnimalSalvaje madre) {
+        super(id, Reino.PEZ, Tipo.PEZ_PAYASO, Medio.ACUATICO, raza, sexo, padre, madre);
+    }
+
     @Override
     public void reproducirSonido() {
         System.out.println("glu glu");

@@ -13,6 +13,10 @@ public class Vaca extends AnimalGranja {
         super(Reino.MAMIFERO, Tipo.VACA, Medio.TERRESTRE, raza, Sexo.HEMBRA, propietario);
     }
 
+    public Vaca(int id, String raza, Sexo sexo, String propietario, AnimalGranja padre, AnimalGranja madre) {
+        super(id, Reino.MAMIFERO, Tipo.VACA, Medio.TERRESTRE, raza, sexo, propietario, padre, madre);
+    }
+
     @Override
     public void reproducirSonido() {
         System.out.println("muuuuuuu");
